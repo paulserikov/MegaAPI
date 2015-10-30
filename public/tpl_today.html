@@ -1,0 +1,28 @@
+<h1>Статистика по call-центру Фаблаб</h1>
+
+<p>Звонков всего : <b>{{records.response.data.length}}</b></p>
+<p>Звонков сегодня ({{dateToday}}): <b>{{(records.response.data | filter:dateToday ).length}}</b> </p>
+
+
+<div class="row">
+	<div class="col-md-12">
+
+		<table st-table="records.response.data" class="table table-striped">
+			<thead>
+			<tr>
+				<th st-sort="recordTime">Время звонка</th>
+				<th st-sort="anumber">С какого номера звонили</th>
+				<th st-sort="durationSeconds">Продолжительность разговора, секунд</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="x in records.response.data | orderBy:'recordTime'" >
+			    <td>{{ x.recordTime }}</td>
+			    <td>{{ x.anumber }}</td>
+			    <td>{{ x.durationSeconds }}</td>
+			</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
