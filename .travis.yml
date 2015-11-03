@@ -1,0 +1,12 @@
+language: perl
+perl:
+  - "5.20"
+  - "5.18"
+
+before_install:
+  - "cpanm Mojolicious::Lite"
+  - "cpanm Data::Dumper"
+
+
+# other examples
+# https://github.com/augensalat/mojolicious-plugin-accesslog/blob/master/.travis.yml
